@@ -1,94 +1,90 @@
 # 🚦 Predicting and Preventing Serious Traffic Collisions in Toronto
 
-This project leverages Toronto's Open Data and machine learning techniques to analyze and predict traffic collisions involving serious injuries or fatalities (KSI – Killed or Seriously Injured). By identifying high-risk factors, temporal patterns, and dangerous intersections, we aim to support data-driven interventions for public safety and urban planning.
+Hi! I created this project to explore serious traffic collisions in Toronto using open data and machine learning in R. My goal was to identify patterns, pinpoint dangerous intersections, and propose actionable solutions to help reduce injuries and fatalities on city streets.
 
-## 📌 Project Objective
+## 📌 What I Set Out to Do
 
-Reduce the number of serious collisions on Toronto roads by:
-- Analyzing trends in KSI incidents
-- Identifying high-risk behaviors and locations
-- Building predictive models to flag potential KSI collisions
-- Proposing actionable recommendations
+I wanted to:
+- Understand when and where serious collisions happen
+- Explore how driver behavior and demographics contribute to risks
+- Build predictive models to highlight where interventions could be most effective
+- Use insights to support smarter urban planning and safety initiatives
 
-## 🗂️ Datasets Used
+## 🗂️ Data Sources I Used
 
-- **Motor Vehicle Collisions - KSI**: Includes detailed incident data since 2006 (location, time, conditions, driver behavior, etc.)
-- **Speed Data (SVC)**: Aggregated vehicle speeds across intersections
-- **Pedestrian Volumes (TMC)**: Pedestrian count data to identify vulnerable hotspots
+- **KSI Collisions Dataset**: Rich historical data since 2006 on incidents involving people killed or seriously injured
+- **Speed Data (SVC)**: Intersection-level traffic speed information
+- **Pedestrian Volumes (TMC)**: Insights into foot traffic across Toronto
 
-## 🧹 Data Cleaning & Feature Engineering
+## 🧹 How I Cleaned and Prepared the Data
 
-- Extracted geographic coordinates using `jsonlite` and `purrr`
-- Corrected mislabeled LAT/LONG fields
-- Derived temporal features like **Hour of Day** and **Weekday**
-- Combined street names into **Intersection**
-- Binned age groups and driving behavior categories
+- Extracted coordinates from geometry fields using `jsonlite` and `purrr`
+- Corrected mislabeled LAT/LONG columns
+- Engineered new features like:
+  - **Hour of day** and **Weekday**
+  - **Intersection name** from Street1 + Street2
+  - **Age groups** and binned **driver behaviors**
 
-## 📊 Exploratory Data Analysis (EDA)
+## 📊 What the Initial Data Told Me
 
-- **Time Analysis**: Peak KSI collisions occur weekdays from 3 PM to 6 PM
-- **High-Risk Intersections**: Top 10 hotspots identified and visualized using `leaflet` maps
-- **Driver Behavior**:
+- **Rush Hour Risk**: Most serious collisions happen weekdays between 3 PM and 6 PM
+- **Danger Zones**: I mapped and ranked the top 10 high-risk intersections using `leaflet`
+- **Driver Behavior Matters**:
   - Lost control
   - Speeding
   - Impaired driving
   - Improper lane change
   - Failure to yield
-- **Demographics**: Elderly and very young drivers are disproportionately affected
+- **Demographic Patterns**: Elderly (65+) and very young drivers (<20) are disproportionately represented
 
-## 🗺️ Geospatial Insights
+## 🗺️ Geospatial Discoveries
 
-Mapped KSI incidents to identify clusters:
-- Downtown core and arterial roads are high-risk
-- Intersections with high speeds and high pedestrian volumes align with KSI hotspots
+I found clustering of incidents around downtown and high-speed roads. Collisions were more frequent:
+- At intersections with higher traffic speeds
+- Where pedestrian volumes were high — making these hotspots particularly dangerous for vulnerable road users
 
-## 🔍 Modeling & Prediction
+## 🔍 Modeling & Prediction Techniques
 
-### 1. Random Forest Classification
-- **Features**: Hour, Weekday, Age Group, Driver Action/Condition, Maneuver
-- **Outcome**: KSI flag (1 or 0)
-- **Accuracy**: ~83%
-- **Top Predictors**:
+### 🔢 Random Forest Classification
+- Trained on features like time, age group, driver actions and maneuvers
+- Output was a binary KSI flag (1 or 0)
+- Achieved ~83% accuracy
+- Top predictors:
   - Driver Action
   - Age Group
   - Maneuver
   - Hour of Day
 
-### 2. Logistic Regression
-- Estimated **odds ratios** for key factors:
-  - Speeding → 3.5× higher risk
-  - Lost control → 4.3× higher risk
-  - Proper driving → 50% reduced risk
+### 📈 Logistic Regression
+- Used to estimate odds ratios:
+  - Speeding increased KSI risk by 3.5×
+  - Losing control raised the odds by 4.3×
+  - Proper driving behavior reduced risk by ~50%
 
-### Confusion Matrix Summary
+### Confusion Matrix Snapshot
 - Correctly predicted 380 serious collisions
-- Flagged 850 non-serious collisions
-- Missed 120 serious ones (key area for improvement)
-- 150 false positives flagged as serious
+- Got 850 non-serious ones right
+- Missed 120 serious collisions — a key area for improvement
+- Flagged 150 non-serious incidents as serious
 
-## 🛠️ Recommendations
+## 🛠️ What I Recommend
 
-- **Targeted Enforcement**: Increase police presence during peak hours at flagged intersections
-- **Intersection Redesign**: Improve safety in high pedestrian zones
-- **Driver Education**: Focus campaigns on senior and young driver demographics
-- **Future Work**: Integrate real-time traffic and weather data for dynamic predictions
+- **Focused Enforcement**: Increase patrols and install cameras at high-risk spots during peak hours
+- **Intersection Redesigns**: Especially at locations with heavy pedestrian traffic
+- **Targeted Driver Education**: For seniors and young drivers
+- **Future Work**: Bring in real-time traffic and weather data to sharpen predictions
 
-## 📍 Conclusion
+## 🧰 Tools I Used
 
-Using R and open data, we’ve uncovered actionable insights to reduce KSI collisions in Toronto. This project provides a framework for smarter city planning, public safety strategies, and proactive road interventions.
-
----
-
-## 🧰 Tech Stack
-
-- R (tidyverse, jsonlite, purrr, leaflet)
-- GitHub for version control
-- Toronto Open Data Portal
+- R and tidyverse for data wrangling
+- jsonlite and purrr for JSON parsing
+- leaflet for interactive mapping
+- Toronto Open Data Portal for public datasets
 
 ## 📎 License
 
-This project is open-source and available under the MIT License.
+MIT License — feel free to use, share, and build on this project.
 
-## 📬 Contact
+## 📬 Connect With Me
 
-For inquiries or collaboration ideas, feel free to reach out via GitHub Issues or submit a pull request!
+If you’re interested in collaborating, improving the models, or applying similar techniques to another city, reach out via GitHub Issues or submit a pull request. I'd love to explore new ways to make urban transportation safer.
