@@ -13,8 +13,7 @@ I wanted to:
 ## 🗂️ Data Sources I Used
 
 - **KSI Collisions Dataset**: Rich historical data since 2006 on incidents involving people killed or seriously injured
-- **Speed Data (SVC)**: Intersection-level traffic speed information
-- **Pedestrian Volumes (TMC)**: Insights into foot traffic across Toronto
+Source: https://open.toronto.ca/dataset/motor-vehicle-collisions-involving-killed-or-seriously-injured-persons/
 
 ## 🧹 How I Cleaned and Prepared the Data
 
