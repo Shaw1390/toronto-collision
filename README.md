@@ -80,10 +80,6 @@ I found clustering of incidents around downtown and high-speed roads. Collisions
 - leaflet for interactive mapping
 - Toronto Open Data Portal for public datasets
 
-## 📎 License
+## 📝 Blog
+https://medium.com/@shawaiz.akhter0/predicting-and-preventing-serious-traffic-collisions-in-toronto-a-data-driven-approach-2e8f4e739704
 
-MIT License — feel free to use, share, and build on this project.
-
-## 📬 Connect With Me
-
-If you’re interested in collaborating, improving the models, or applying similar techniques to another city, reach out via GitHub Issues or submit a pull request. I'd love to explore new ways to make urban transportation safer.
